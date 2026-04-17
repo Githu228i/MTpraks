@@ -27,10 +27,17 @@ public:
 
     void WordChange(const QString &text);
 
+    void updateTable();
+
+    void addState();
+
+    void removeState();
+
 
 private slots:
     void AlphabetEnterOpen();
     void WordEnterCheck();
+    void ruleChanged(int row, int col);
 
 private:
     Ui::MainWindow *ui;

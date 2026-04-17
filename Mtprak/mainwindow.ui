@@ -17,10 +17,10 @@
    <widget class="QPushButton" name="AlphabetEnterBut">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>430</y>
-      <width>391</width>
-      <height>131</height>
+      <x>60</x>
+      <y>610</y>
+      <width>371</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="text">
@@ -30,10 +30,10 @@
    <widget class="QLabel" name="check1">
     <property name="geometry">
      <rect>
-      <x>740</x>
-      <y>400</y>
-      <width>261</width>
-      <height>51</height>
+      <x>570</x>
+      <y>610</y>
+      <width>231</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
@@ -43,8 +43,8 @@
    <widget class="QLabel" name="check2">
     <property name="geometry">
      <rect>
-      <x>760</x>
-      <y>530</y>
+      <x>570</x>
+      <y>630</y>
       <width>331</width>
       <height>41</height>
      </rect>
@@ -56,8 +56,8 @@
    <widget class="QLineEdit" name="WordEnter">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>80</y>
+      <x>60</x>
+      <y>50</y>
       <width>371</width>
       <height>61</height>
      </rect>
@@ -66,8 +66,8 @@
    <widget class="QLabel" name="WordOnText">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>50</y>
+      <x>60</x>
+      <y>20</y>
       <width>251</width>
       <height>16</height>
      </rect>
@@ -79,8 +79,8 @@
    <widget class="QPushButton" name="GetWordBut">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>60</y>
+      <x>550</x>
+      <y>30</y>
       <width>221</width>
       <height>81</height>
      </rect>
@@ -92,14 +92,50 @@
    <widget class="QLabel" name="checkword">
     <property name="geometry">
      <rect>
-      <x>660</x>
-      <y>340</y>
+      <x>570</x>
+      <y>680</y>
       <width>201</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="RulesTable">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>230</y>
+      <width>711</width>
+      <height>291</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addStateBut">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>530</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Добавить состояние:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="removeStateBut">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>530</y>
+      <width>151</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Удалить состояние</string>
     </property>
    </widget>
   </widget>
