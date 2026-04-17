@@ -3,9 +3,12 @@
 
 #include <QMainWindow>
 
+#include "rule.h"
+
 //my includes:
 #include <QSet>
 #include <QString>
+#include <QMap>
 
 QT_BEGIN_NAMESPACE
 
@@ -33,6 +36,10 @@ public:
 
     void removeState();
 
+    Rule parseRule(int row, int col, const QString &text);
+
+    void collectRules();
+
 
 private slots:
     void AlphabetEnterOpen();
@@ -46,6 +53,7 @@ private:
     QSet<QChar> Alphabet;
     QSet<QChar> AddAlphabet;
     QString Word;
+    QVector<Rule> Rules;
 
 };
 #endif // MAINWINDOW_H

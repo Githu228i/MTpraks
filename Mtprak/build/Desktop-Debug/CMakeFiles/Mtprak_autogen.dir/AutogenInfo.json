@@ -227,6 +227,12 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"/home/vladimir/projects/MTpraks/Mtprak/rule.h",
+			"MU",
+			"EWIEGA46WW/moc_rule.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -293,7 +299,8 @@
 			null
 		],
 		[ "/home/vladimir/projects/MTpraks/Mtprak/main.cpp", "MU", null ],
-		[ "/home/vladimir/projects/MTpraks/Mtprak/mainwindow.cpp", "MU", null ]
+		[ "/home/vladimir/projects/MTpraks/Mtprak/mainwindow.cpp", "MU", null ],
+		[ "/home/vladimir/projects/MTpraks/Mtprak/rule.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],

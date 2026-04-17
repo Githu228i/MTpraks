@@ -6,6 +6,7 @@
 
 //my includes:
 #include <algorithm>
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -16,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 //connecters:
     connect(ui->AlphabetEnterBut, &QPushButton::clicked, this, &MainWindow::AlphabetEnterOpen);
+    connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::collectRules);
     connect(ui->GetWordBut, &QPushButton::clicked, this, [this]() {
         WordChange(ui->WordEnter->text());
     });
@@ -239,5 +241,75 @@ void MainWindow::ruleChanged(int row, int col)
             ui->RulesTable->blockSignals(false);
             return;
         }
+    }
+}
+
+Rule MainWindow::parseRule(int row, int col, const QString &text) {
+    Rule rule;
+
+    // откуда
+    rule.fromState = row;
+
+    // символ берём из заголовка столбца
+    QString header = ui->RulesTable->horizontalHeaderItem(col)->text();
+    rule.input = header[0];
+
+    QStringList parts = text.split(" ", Qt::SkipEmptyParts);
+
+    for (const QString &part : parts)
+    {
+        // направление
+        if (part == ">" || part == "<")
+        {
+            rule.dir = part[0];
+            rule.hasDir = true;
+        }
+        // символ
+        else if (part.size() == 1)
+        {
+            rule.write = part[0];
+            rule.hasWrite = true;
+        }
+        // состояние
+        else if (part.startsWith('q'))
+        {
+            QString num = part.mid(1); // убрали 'q'
+            rule.toState = num.toInt();
+            rule.hasState = true;
+        }
+    }
+    return rule;
+}
+
+void MainWindow::collectRules() {
+    Rules.clear();
+
+    int rows = ui->RulesTable->rowCount();
+    int cols = ui->RulesTable->columnCount();
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            QTableWidgetItem *item = ui->RulesTable->item(i, j);
+            if (!item) continue;
+
+            QString text = item->text().trimmed();
+            if (text.isEmpty()) continue;
+
+            Rules.push_back(parseRule(i, j, text));
+        }
+    }
+    //check rules
+    {
+    //qDebug() << "=== RULES ===";
+    // for (const Rule &r : Rules)
+    // {
+    //     qDebug() << "from q" << r.fromState
+    //              << "input:" << r.input
+    //              << "| write:" << (r.hasWrite ? QString(r.write) : "-")
+    //              << "| dir:" << (r.hasDir ? QString(r.dir) : "-")
+    //              << "| to q" << (r.hasState ? QString::number(r.toState) : "-");
+    // }
     }
 }

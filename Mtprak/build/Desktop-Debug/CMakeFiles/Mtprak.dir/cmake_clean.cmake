@@ -10,6 +10,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Mtprak.dir/main.cpp.o.d"
   "CMakeFiles/Mtprak.dir/mainwindow.cpp.o"
   "CMakeFiles/Mtprak.dir/mainwindow.cpp.o.d"
+  "CMakeFiles/Mtprak.dir/rule.cpp.o"
+  "CMakeFiles/Mtprak.dir/rule.cpp.o.d"
   "Mtprak"
   "Mtprak.pdb"
   "Mtprak_autogen/mocs_compilation.cpp"

@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/vladimir/projects/MTpraks/Mtprak/alphabetenter.cpp" "CMakeFiles/Mtprak.dir/alphabetenter.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/alphabetenter.cpp.o.d"
   "/home/vladimir/projects/MTpraks/Mtprak/main.cpp" "CMakeFiles/Mtprak.dir/main.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/main.cpp.o.d"
   "/home/vladimir/projects/MTpraks/Mtprak/mainwindow.cpp" "CMakeFiles/Mtprak.dir/mainwindow.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/mainwindow.cpp.o.d"
+  "/home/vladimir/projects/MTpraks/Mtprak/rule.cpp" "CMakeFiles/Mtprak.dir/rule.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/rule.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

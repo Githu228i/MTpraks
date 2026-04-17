@@ -48,6 +48,7 @@ set(OLD_GLOB
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/mocs_compilation.cpp"
   "/home/vladimir/projects/MTpraks/Mtprak/main.cpp"
   "/home/vladimir/projects/MTpraks/Mtprak/mainwindow.cpp"
+  "/home/vladimir/projects/MTpraks/Mtprak/rule.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")
@@ -71,6 +72,7 @@ set(OLD_GLOB
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/include/ui_mainwindow.h"
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/moc_predefs.h"
   "/home/vladimir/projects/MTpraks/Mtprak/mainwindow.h"
+  "/home/vladimir/projects/MTpraks/Mtprak/rule.h"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

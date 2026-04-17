@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-03373ec8ad7e82edbfb1.json",
+					"jsonFile" : "directory-.-Debug-638599751466fae85064.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Mtprak::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Mtprak-Debug-5914702ee36ff310c252.json",
+					"jsonFile" : "target-Mtprak-Debug-03148461eb5f78bb9f95.json",
 					"name" : "Mtprak",
 					"projectIndex" : 0
 				},
