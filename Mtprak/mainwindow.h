@@ -23,9 +23,16 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void showError(const QString &msg);
+
+    void WordChange(const QString &text){
+        Word = text;
+    }
+
 
 private slots:
     void AlphabetEnterOpen();
+    void WordEnterCheck();
 
 private:
     Ui::MainWindow *ui;
@@ -33,5 +40,7 @@ private:
 //my params:
     QSet<QChar> Alphabet;
     QSet<QChar> AddAlphabet;
+    QString Word;
+
 };
 #endif // MAINWINDOW_H

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1263</width>
-    <height>738</height>
+    <width>922</width>
+    <height>772</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -53,13 +53,36 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="WordEnter">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>90</y>
+      <width>371</width>
+      <height>61</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="WordOnText">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>50</y>
+      <width>251</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Слово на ленте:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1263</width>
+     <width>922</width>
      <height>20</height>
     </rect>
    </property>
