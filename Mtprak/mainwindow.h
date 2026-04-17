@@ -9,6 +9,7 @@
 #include <QSet>
 #include <QString>
 #include <QMap>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 
@@ -46,6 +47,16 @@ public:
 
     void loadWordToTape();
 
+    void step();
+
+    void stopMachine();
+
+    void StartMachineForOneStep();
+
+    void runMachine();
+
+    void testSteps(int stepsCount);
+
 
 private slots:
     void AlphabetEnterOpen();
@@ -62,6 +73,9 @@ private:
     QVector<Rule> Rules;
     QMap<int, QChar> tape;
     int head = 0;
+    int currentState = 0;
+    bool isRunning = false;
+    QTimer *timer;
 
 };
 #endif // MAINWINDOW_H

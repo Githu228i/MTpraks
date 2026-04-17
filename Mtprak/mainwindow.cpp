@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::step);
+
 //connecters:
     connect(ui->AlphabetEnterBut, &QPushButton::clicked, this, &MainWindow::AlphabetEnterOpen);
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::collectRules);
@@ -25,6 +28,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->addStateBut, &QPushButton::clicked, this, &MainWindow::addState);
     connect(ui->removeStateBut, &QPushButton::clicked, this, &MainWindow::removeState);
     connect(ui->RulesTable, &QTableWidget::cellChanged, this, &MainWindow::ruleChanged);
+    connect(ui->startBut, &QPushButton::clicked, this, &MainWindow::StartMachineForOneStep);
+    connect(ui->runBut, &QPushButton::clicked, this, &MainWindow::runMachine);
+    connect(ui->stopBut, &QPushButton::clicked, this, &MainWindow::stopMachine);
+
+    connect(ui->pushButton_2, &QPushButton::clicked, this, [this]() {
+        testSteps(10);
+    });
 }
 
 MainWindow::~MainWindow()
@@ -108,6 +118,7 @@ void MainWindow::WordEnterCheck() {
 
 void MainWindow::WordChange(const QString &text){
     Word = text;
+    loadWordToTape();
     ui->checkword->setText(text);
 }
 
@@ -323,10 +334,10 @@ void MainWindow::collectRules() {
     }
     //check tapeloading
     {
-    loadWordToTape();
-    for (int i = -1; i < 5; i++){
-        qDebug() << i << ":" << getSymbol(i);
-    }
+    // loadWordToTape();
+    // for (int i = -1; i < 5; i++){
+    //     qDebug() << i << ":" << getSymbol(i);
+    // }
     }
 }
 
@@ -347,10 +358,110 @@ void MainWindow::setSymbol(int pos, QChar c)
 void MainWindow::loadWordToTape()
 {
     tape.clear();
-
     for (int i = 0; i < Word.size(); i++) {
         setSymbol(i, Word[i]);
     }
-
     head = 0;
+}
+
+void MainWindow::step()
+{
+    if (!isRunning) return;
+    QChar current = getSymbol(head);
+
+    // ищем правило
+    for (const Rule &r : Rules)
+    {
+        if (r.fromState == currentState && r.input == current)
+        {
+            // 1. запись
+            if (r.hasWrite)
+                setSymbol(head, r.write);
+
+            // 2. движение
+            if (r.hasDir)
+            {
+                if (r.dir == '>')
+                    head++;
+                else if (r.dir == '<')
+                    head--;
+            }
+
+            // 3. смена состояния
+            if (r.hasState)
+                currentState = r.toState;
+
+            qDebug() << "STEP:"
+                     << "state q" << currentState
+                     << "head" << head
+                     << "symbol" << getSymbol(head);
+
+            return; // правило найдено → выходим
+        }
+    }
+
+    // если правило не найдено
+    qDebug() << "NO RULE → STOP";
+    stopMachine();
+}
+
+void MainWindow::stopMachine()
+{
+    isRunning = false;
+    timer->stop();
+    qDebug() << "MACHINE STOPPED";
+}
+
+void MainWindow::StartMachineForOneStep() {
+    if(!isRunning) {
+        collectRules();
+        loadWordToTape();
+        currentState = 0;
+        isRunning = true;
+    }
+    if (timer->isActive())
+        timer->stop();
+    step();
+}
+void MainWindow::runMachine()
+{
+    if (!isRunning)
+    {
+        collectRules();
+        loadWordToTape();
+        currentState = 0;
+        isRunning = true;
+    }
+
+    if (timer->isActive())
+        return;
+
+    timer->start(300);
+}
+
+void MainWindow::testSteps(int stepsCount)
+{
+    collectRules();
+    loadWordToTape();
+    currentState = 0;
+    isRunning = true;
+
+    qDebug() << "=== TEST START ===";
+
+    for (int i = 0; i < stepsCount; i++)
+    {
+        if (!isRunning)
+            break;
+
+        qDebug() << "--- step" << i << "---";
+        step();
+    }
+
+    qDebug() << "=== TEST END ===";
+
+    // вывод кусочка ленты
+    for (int i = -5; i <= 5; i++)
+    {
+        qDebug() << i << ":" << getSymbol(i);
+    }
 }
