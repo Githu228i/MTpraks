@@ -25,9 +25,7 @@ public:
 
     void showError(const QString &msg);
 
-    void WordChange(const QString &text){
-        Word = text;
-    }
+    void WordChange(const QString &text);
 
 
 private slots:

@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
 
 //conecters:
     connect(ui->AlphabetEnterBut, &QPushButton::clicked, this, &MainWindow::AlphabetEnterOpen);
+    connect(ui->GetWordBut, &QPushButton::clicked, this, [this]() {
+        WordChange(ui->WordEnter->text());
+    });
     connect(ui->WordEnter, &QLineEdit::textChanged, this, &MainWindow::WordEnterCheck);
 }
 
@@ -86,5 +89,10 @@ void MainWindow::WordEnterCheck() {
 
         showError("Символа нет в алфавите");
     }
+}
+
+void MainWindow::WordChange(const QString &text){
+    Word = text;
+    ui->checkword->setText(text);
 }
 

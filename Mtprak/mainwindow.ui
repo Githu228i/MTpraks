@@ -57,7 +57,7 @@
     <property name="geometry">
      <rect>
       <x>100</x>
-      <y>90</y>
+      <y>80</y>
       <width>371</width>
       <height>61</height>
      </rect>
@@ -66,7 +66,7 @@
    <widget class="QLabel" name="WordOnText">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>100</x>
       <y>50</y>
       <width>251</width>
       <height>16</height>
@@ -74,6 +74,32 @@
     </property>
     <property name="text">
      <string>Слово на ленте:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="GetWordBut">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>60</y>
+      <width>221</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Загрузить слово</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="checkword">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>340</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
