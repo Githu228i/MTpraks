@@ -40,6 +40,12 @@ public:
 
     void collectRules();
 
+    QChar getSymbol(int pos);
+
+    void setSymbol(int pos, QChar c);
+
+    void loadWordToTape();
+
 
 private slots:
     void AlphabetEnterOpen();
@@ -54,6 +60,8 @@ private:
     QSet<QChar> AddAlphabet;
     QString Word;
     QVector<Rule> Rules;
+    QMap<int, QChar> tape;
+    int head = 0;
 
 };
 #endif // MAINWINDOW_H

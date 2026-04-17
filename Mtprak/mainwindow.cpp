@@ -312,4 +312,45 @@ void MainWindow::collectRules() {
     //              << "| to q" << (r.hasState ? QString::number(r.toState) : "-");
     // }
     }
+    //check tape
+    {
+    // tape.clear();
+    // head = 0;
+    // setSymbol(0, 'a');
+    // setSymbol(1, 'b');
+    // setSymbol(-1, 'c');
+    // qDebug() << getSymbol(-1) << getSymbol(0) << getSymbol(1) << getSymbol(2) << getSymbol(472387);
+    }
+    //check tapeloading
+    {
+    loadWordToTape();
+    for (int i = -1; i < 5; i++){
+        qDebug() << i << ":" << getSymbol(i);
+    }
+    }
+}
+
+QChar MainWindow::getSymbol(int pos) {
+    if (tape.contains(pos))
+        return tape[pos];
+    return '^';
+}
+
+void MainWindow::setSymbol(int pos, QChar c)
+{
+    if (c == '^')
+        tape.remove(pos);
+    else
+        tape[pos] = c;
+}
+
+void MainWindow::loadWordToTape()
+{
+    tape.clear();
+
+    for (int i = 0; i < Word.size(); i++) {
+        setSymbol(i, Word[i]);
+    }
+
+    head = 0;
 }
