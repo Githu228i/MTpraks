@@ -1,0 +1,9 @@
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/install.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen_timestamp_deps.dir
+/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir

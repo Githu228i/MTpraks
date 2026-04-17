@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AlphabetEnter</class>
+ <widget class="QDialog" name="AlphabetEnter">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>683</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="ReadyBut">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>290</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Готово</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="EnterMainAlpha">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>90</y>
+     <width>201</width>
+     <height>111</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="EnterAddAlpha">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>90</y>
+     <width>191</width>
+     <height>111</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="MainText">
+   <property name="geometry">
+    <rect>
+     <x>127</x>
+     <y>34</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Введите входной алфавит</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="AddText">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>50</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Введите доп. символы</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

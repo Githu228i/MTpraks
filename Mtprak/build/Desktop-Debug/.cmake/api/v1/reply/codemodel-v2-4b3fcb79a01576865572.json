@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-03373ec8ad7e82edbfb1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Mtprak",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Mtprak::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Mtprak-Debug-5914702ee36ff310c252.json",
+					"name" : "Mtprak",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Mtprak_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Mtprak_autogen-Debug-431522ac569fc1b60178.json",
+					"name" : "Mtprak_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Mtprak_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Mtprak_autogen_timestamp_deps-Debug-7b25ffc963f32e3735c8.json",
+					"name" : "Mtprak_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug",
+		"source" : "/home/vladimir/projects/MTpraks/Mtprak"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -3,10 +3,16 @@
 
 #include <QMainWindow>
 
+//my includes:
+#include <QSet>
+#include <QString>
+
 QT_BEGIN_NAMESPACE
+
 namespace Ui {
-class MainWindow;
+    class MainWindow;
 }
+
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -17,7 +23,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
+private slots:
+    void AlphabetEnterOpen();
+
 private:
     Ui::MainWindow *ui;
+
+//my params:
+    QSet<QChar> Alphabet;
+    QSet<QChar> AddAlphabet;
 };
 #endif // MAINWINDOW_H

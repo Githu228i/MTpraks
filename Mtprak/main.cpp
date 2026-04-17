@@ -4,10 +4,12 @@
 #include <QLocale>
 #include <QTranslator>
 
+
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
+//translater - not mentioned
     QTranslator translator;
     const QStringList uiLanguages = QLocale::system().uiLanguages();
     for (const QString &locale : uiLanguages) {
@@ -17,6 +19,8 @@ int main(int argc, char *argv[])
             break;
         }
     }
+//translater end
+
     MainWindow w;
     w.show();
     return a.exec();
