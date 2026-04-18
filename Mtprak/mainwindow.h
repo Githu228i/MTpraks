@@ -51,9 +51,13 @@ public:
 
     void loadWordToTape();
 
+    void updateCell(int pos);
+
     void step();
 
     void stopMachine();
+
+    void doStepSafe();
 
     void StartMachineForOneStep();
 
@@ -70,6 +74,10 @@ public:
     void updateHeadPosition();
 
     void animateTapeShift(int delta);
+
+    void updateHeaders();
+
+    void updateAnimationSpeed(int interval);
 
     void setUiRunning(bool running);
 
@@ -96,6 +104,7 @@ private:
     int currentState = 0;
     bool isRunning = false;
     QTimer *timer;
+    bool isAnimating = false;
     int viewOffset = -6;
     QLabel *headLabel;
     QPropertyAnimation *headAnim;

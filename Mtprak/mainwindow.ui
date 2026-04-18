@@ -112,8 +112,8 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>../../../Загрузки/ChatGPT Image 18 апр. 2026 г., 22_24_05.png</normaloff>../../../Загрузки/ChatGPT Image 18 апр. 2026 г., 22_24_05.png</iconset>
+     <iconset resource="resourses.qrc">
+      <normaloff>:/one_step</normaloff>:/one_step</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -205,6 +205,24 @@
      <string>Текущее слово:</string>
     </property>
    </widget>
+   <widget class="QSlider" name="speedSlider">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>590</y>
+      <width>301</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>777</pointsize>
+     </font>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -218,6 +236,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourses.qrc"/>
+ </resources>
  <connections/>
 </ui>

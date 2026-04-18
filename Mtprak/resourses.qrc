@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>arrow</file>
+        <file>one_step</file>
     </qresource>
 </RCC>

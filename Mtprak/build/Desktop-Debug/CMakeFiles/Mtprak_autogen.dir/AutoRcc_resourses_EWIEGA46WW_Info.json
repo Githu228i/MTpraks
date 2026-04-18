@@ -6,7 +6,11 @@
 	"CMAKE_SOURCE_DIR" : "/home/vladimir/projects/MTpraks/Mtprak",
 	"GENERATOR" : "Unix Makefiles",
 	"INCLUDE_DIR" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/include",
-	"INPUTS" : [ "/home/vladimir/projects/MTpraks/Mtprak/arrow" ],
+	"INPUTS" : 
+	[
+		"/home/vladimir/projects/MTpraks/Mtprak/arrow",
+		"/home/vladimir/projects/MTpraks/Mtprak/one_step"
+	],
 	"LOCK_FILE" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,
 	"OPTIONS" : [ "-name", "resourses" ],
