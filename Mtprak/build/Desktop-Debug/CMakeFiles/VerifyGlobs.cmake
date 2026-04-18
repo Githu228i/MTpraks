@@ -45,6 +45,7 @@ set(OLD_GLOB
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/3.28.3/CompilerIdCXX/CMakeCXXCompilerId.cpp"
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/EWIEGA46WW/moc_alphabetenter.cpp"
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/EWIEGA46WW/moc_mainwindow.cpp"
+  "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp"
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/mocs_compilation.cpp"
   "/home/vladimir/projects/MTpraks/Mtprak/main.cpp"
   "/home/vladimir/projects/MTpraks/Mtprak/mainwindow.cpp"
@@ -154,6 +155,7 @@ endif()
 # _directory_contents at /usr/lib/x86_64-linux-gnu/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake:83 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "/home/vladimir/projects/MTpraks/Mtprak/*.qrc")
 set(OLD_GLOB
+  "/home/vladimir/projects/MTpraks/Mtprak/resourses.qrc"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

@@ -347,9 +347,23 @@ CMakeFiles/Mtprak.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QPropertyAnimation \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qpropertyanimation.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariantanimation.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractanimation.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qeasingcurve.h \
  /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/include/./ui_mainwindow.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QVariant \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/QIcon \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qicon.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
@@ -365,7 +379,6 @@ CMakeFiles/Mtprak.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qheaderview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemview.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractscrollarea.h \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractitemmodel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qitemselectionmodel.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qabstractitemdelegate.h \
@@ -379,11 +392,6 @@ CMakeFiles/Mtprak.dir/mainwindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtabbar.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qrubberband.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
- /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
- /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLineEdit \
  /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlineedit.h \
  /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \

@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Mtprak_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/Mtprak_autogen.dir/ParseCache.txt"
   "Mtprak_autogen"
+  "CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o"
+  "CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o.d"
   "CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o"
   "CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/Mtprak.dir/alphabetenter.cpp.o"
@@ -14,6 +16,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Mtprak.dir/rule.cpp.o.d"
   "Mtprak"
   "Mtprak.pdb"
+  "Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp"
   "Mtprak_autogen/mocs_compilation.cpp"
   "Mtprak_autogen/timestamp"
 )

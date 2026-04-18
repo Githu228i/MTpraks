@@ -76,10 +76,17 @@ Mtprak_autogen/timestamp: CMakeFiles/Mtprak.dir/compiler_depend.ts
 	/usr/bin/cmake -E cmake_autogen /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir/AutogenInfo.json Debug
 	/usr/bin/cmake -E touch /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/timestamp
 
+Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/resourses.qrc
+Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Info.json
+Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/arrow
+Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /usr/lib/qt6/libexec/rcc
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resourses.qrc"
+	/usr/bin/cmake -E cmake_autorcc /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Info.json Debug
+
 CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o: CMakeFiles/Mtprak.dir/flags.make
 CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o: Mtprak_autogen/mocs_compilation.cpp
 CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o: CMakeFiles/Mtprak.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o -MF CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o.d -o CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o -c /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/mocs_compilation.cpp
 
 CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.i: cmake_force
@@ -93,7 +100,7 @@ CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.s: cmake_force
 CMakeFiles/Mtprak.dir/main.cpp.o: CMakeFiles/Mtprak.dir/flags.make
 CMakeFiles/Mtprak.dir/main.cpp.o: /home/vladimir/projects/MTpraks/Mtprak/main.cpp
 CMakeFiles/Mtprak.dir/main.cpp.o: CMakeFiles/Mtprak.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Mtprak.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Mtprak.dir/main.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Mtprak.dir/main.cpp.o -MF CMakeFiles/Mtprak.dir/main.cpp.o.d -o CMakeFiles/Mtprak.dir/main.cpp.o -c /home/vladimir/projects/MTpraks/Mtprak/main.cpp
 
 CMakeFiles/Mtprak.dir/main.cpp.i: cmake_force
@@ -107,7 +114,7 @@ CMakeFiles/Mtprak.dir/main.cpp.s: cmake_force
 CMakeFiles/Mtprak.dir/mainwindow.cpp.o: CMakeFiles/Mtprak.dir/flags.make
 CMakeFiles/Mtprak.dir/mainwindow.cpp.o: /home/vladimir/projects/MTpraks/Mtprak/mainwindow.cpp
 CMakeFiles/Mtprak.dir/mainwindow.cpp.o: CMakeFiles/Mtprak.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Mtprak.dir/mainwindow.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Mtprak.dir/mainwindow.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Mtprak.dir/mainwindow.cpp.o -MF CMakeFiles/Mtprak.dir/mainwindow.cpp.o.d -o CMakeFiles/Mtprak.dir/mainwindow.cpp.o -c /home/vladimir/projects/MTpraks/Mtprak/mainwindow.cpp
 
 CMakeFiles/Mtprak.dir/mainwindow.cpp.i: cmake_force
@@ -121,7 +128,7 @@ CMakeFiles/Mtprak.dir/mainwindow.cpp.s: cmake_force
 CMakeFiles/Mtprak.dir/alphabetenter.cpp.o: CMakeFiles/Mtprak.dir/flags.make
 CMakeFiles/Mtprak.dir/alphabetenter.cpp.o: /home/vladimir/projects/MTpraks/Mtprak/alphabetenter.cpp
 CMakeFiles/Mtprak.dir/alphabetenter.cpp.o: CMakeFiles/Mtprak.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Mtprak.dir/alphabetenter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Mtprak.dir/alphabetenter.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Mtprak.dir/alphabetenter.cpp.o -MF CMakeFiles/Mtprak.dir/alphabetenter.cpp.o.d -o CMakeFiles/Mtprak.dir/alphabetenter.cpp.o -c /home/vladimir/projects/MTpraks/Mtprak/alphabetenter.cpp
 
 CMakeFiles/Mtprak.dir/alphabetenter.cpp.i: cmake_force
@@ -135,7 +142,7 @@ CMakeFiles/Mtprak.dir/alphabetenter.cpp.s: cmake_force
 CMakeFiles/Mtprak.dir/rule.cpp.o: CMakeFiles/Mtprak.dir/flags.make
 CMakeFiles/Mtprak.dir/rule.cpp.o: /home/vladimir/projects/MTpraks/Mtprak/rule.cpp
 CMakeFiles/Mtprak.dir/rule.cpp.o: CMakeFiles/Mtprak.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Mtprak.dir/rule.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Mtprak.dir/rule.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Mtprak.dir/rule.cpp.o -MF CMakeFiles/Mtprak.dir/rule.cpp.o.d -o CMakeFiles/Mtprak.dir/rule.cpp.o -c /home/vladimir/projects/MTpraks/Mtprak/rule.cpp
 
 CMakeFiles/Mtprak.dir/rule.cpp.i: cmake_force
@@ -146,13 +153,28 @@ CMakeFiles/Mtprak.dir/rule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Mtprak.dir/rule.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vladimir/projects/MTpraks/Mtprak/rule.cpp -o CMakeFiles/Mtprak.dir/rule.cpp.s
 
+CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o: CMakeFiles/Mtprak.dir/flags.make
+CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o: Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp
+CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o: CMakeFiles/Mtprak.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o -MF CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o.d -o CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o -c /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp
+
+CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp > CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.i
+
+CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp -o CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.s
+
 # Object files for target Mtprak
 Mtprak_OBJECTS = \
 "CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o" \
 "CMakeFiles/Mtprak.dir/main.cpp.o" \
 "CMakeFiles/Mtprak.dir/mainwindow.cpp.o" \
 "CMakeFiles/Mtprak.dir/alphabetenter.cpp.o" \
-"CMakeFiles/Mtprak.dir/rule.cpp.o"
+"CMakeFiles/Mtprak.dir/rule.cpp.o" \
+"CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o"
 
 # External object files for target Mtprak
 Mtprak_EXTERNAL_OBJECTS =
@@ -162,6 +184,7 @@ Mtprak: CMakeFiles/Mtprak.dir/main.cpp.o
 Mtprak: CMakeFiles/Mtprak.dir/mainwindow.cpp.o
 Mtprak: CMakeFiles/Mtprak.dir/alphabetenter.cpp.o
 Mtprak: CMakeFiles/Mtprak.dir/rule.cpp.o
+Mtprak: CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o
 Mtprak: CMakeFiles/Mtprak.dir/build.make
 Mtprak: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 Mtprak: /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.4.2
@@ -169,7 +192,7 @@ Mtprak: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
 Mtprak: /usr/lib/x86_64-linux-gnu/libGLX.so
 Mtprak: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 Mtprak: CMakeFiles/Mtprak.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Mtprak"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Mtprak"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Mtprak.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -180,6 +203,7 @@ CMakeFiles/Mtprak.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/Mtprak.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/Mtprak.dir/clean
 
+CMakeFiles/Mtprak.dir/depend: Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp
 CMakeFiles/Mtprak.dir/depend: Mtprak_autogen/timestamp
 	cd /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/vladimir/projects/MTpraks/Mtprak /home/vladimir/projects/MTpraks/Mtprak /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/Mtprak.dir/depend

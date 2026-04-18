@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>922</width>
+    <width>836</width>
     <height>861</height>
    </rect>
   </property>
@@ -19,46 +19,20 @@
      <rect>
       <x>60</x>
       <y>610</y>
-      <width>371</width>
-      <height>91</height>
+      <width>331</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
      <string>Изменить алфавит</string>
     </property>
    </widget>
-   <widget class="QLabel" name="check1">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>610</y>
-      <width>231</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="check2">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>630</y>
-      <width>331</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="WordEnter">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>50</y>
-      <width>371</width>
+      <x>130</x>
+      <y>60</y>
+      <width>251</width>
       <height>61</height>
      </rect>
     </property>
@@ -66,21 +40,21 @@
    <widget class="QLabel" name="WordOnText">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>20</y>
-      <width>251</width>
+      <x>130</x>
+      <y>30</y>
+      <width>181</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Слово на ленте:</string>
+     <string>Введите новое слово: </string>
     </property>
    </widget>
    <widget class="QPushButton" name="GetWordBut">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>30</y>
+      <x>470</x>
+      <y>40</y>
       <width>221</width>
       <height>81</height>
      </rect>
@@ -89,24 +63,11 @@
      <string>Загрузить слово</string>
     </property>
    </widget>
-   <widget class="QLabel" name="checkword">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>680</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QTableWidget" name="RulesTable">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>230</y>
+      <y>260</y>
       <width>711</width>
       <height>291</height>
      </rect>
@@ -115,8 +76,8 @@
    <widget class="QPushButton" name="addStateBut">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>530</y>
+      <x>60</x>
+      <y>560</y>
       <width>151</width>
       <height>41</height>
      </rect>
@@ -128,8 +89,8 @@
    <widget class="QPushButton" name="removeStateBut">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>530</y>
+      <x>230</x>
+      <y>560</y>
       <width>151</width>
       <height>41</height>
      </rect>
@@ -138,39 +99,36 @@
      <string>Удалить состояние</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>540</y>
-      <width>80</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="startBut">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>750</y>
-      <width>131</width>
-      <height>61</height>
+      <x>60</x>
+      <y>700</y>
+      <width>151</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="text">
-     <string>one step</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../../Загрузки/ChatGPT Image 18 апр. 2026 г., 22_24_05.png</normaloff>../../../Загрузки/ChatGPT Image 18 апр. 2026 г., 22_24_05.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>64</width>
+      <height>64</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="runBut">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>740</y>
-      <width>111</width>
-      <height>71</height>
+      <x>250</x>
+      <y>700</y>
+      <width>151</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="text">
@@ -180,27 +138,71 @@
    <widget class="QPushButton" name="stopBut">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>740</y>
-      <width>111</width>
+      <x>430</x>
+      <y>700</y>
+      <width>151</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="TapeView">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>170</y>
+      <width>711</width>
       <height>71</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stopBut2">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>700</y>
+      <width>151</width>
+      <height>101</height>
      </rect>
     </property>
     <property name="text">
      <string>Stop</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QLabel" name="CurWordIs">
     <property name="geometry">
      <rect>
-      <x>810</x>
+      <x>190</x>
       <y>130</y>
-      <width>61</width>
-      <height>101</height>
+      <width>571</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>-----------</string>
+    </property>
+    <property name="wordWrap">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>140</y>
+      <width>101</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Текущее слово:</string>
     </property>
    </widget>
   </widget>
@@ -209,7 +211,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>922</width>
+     <width>836</width>
      <height>20</height>
     </rect>
    </property>

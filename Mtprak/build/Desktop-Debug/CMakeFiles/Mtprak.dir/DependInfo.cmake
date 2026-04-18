@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "" "Mtprak_autogen/timestamp" "custom" "Mtprak_autogen/deps"
+  "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp" "CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp.o.d"
   "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/mocs_compilation.cpp" "CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o.d"
   "/home/vladimir/projects/MTpraks/Mtprak/alphabetenter.cpp" "CMakeFiles/Mtprak.dir/alphabetenter.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/alphabetenter.cpp.o.d"
   "/home/vladimir/projects/MTpraks/Mtprak/main.cpp" "CMakeFiles/Mtprak.dir/main.cpp.o" "gcc" "CMakeFiles/Mtprak.dir/main.cpp.o.d"

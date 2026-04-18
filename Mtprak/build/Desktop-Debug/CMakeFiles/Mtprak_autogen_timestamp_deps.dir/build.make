@@ -66,10 +66,10 @@ include CMakeFiles/Mtprak_autogen_timestamp_deps.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/Mtprak_autogen_timestamp_deps.dir/progress.make
 
-CMakeFiles/Mtprak_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
-CMakeFiles/Mtprak_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
-CMakeFiles/Mtprak_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
 CMakeFiles/Mtprak_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.4.2
+CMakeFiles/Mtprak_autogen_timestamp_deps: /usr/lib/qt6/libexec/moc
+CMakeFiles/Mtprak_autogen_timestamp_deps: /usr/lib/qt6/libexec/uic
+CMakeFiles/Mtprak_autogen_timestamp_deps: /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.4.2
 
 Mtprak_autogen_timestamp_deps: CMakeFiles/Mtprak_autogen_timestamp_deps
 Mtprak_autogen_timestamp_deps: CMakeFiles/Mtprak_autogen_timestamp_deps.dir/build.make

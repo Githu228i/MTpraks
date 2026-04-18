@@ -355,4 +355,20 @@ CMakeFiles/Mtprak.dir/Mtprak_autogen/mocs_compilation.cpp.o: \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qmap.h \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/QTimer \
  /usr/include/x86_64-linux-gnu/qt6/QtCore/qtimer.h \
- /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasictimer.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QLabel \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qlabel.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qframe.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpicture.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qiodevice.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextdocument.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qurl.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/QPropertyAnimation \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qpropertyanimation.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariantanimation.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qabstractanimation.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtCore/qeasingcurve.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextcursor.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextformat.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qpen.h \
+ /usr/include/x86_64-linux-gnu/qt6/QtGui/qtextoption.h

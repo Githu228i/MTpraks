@@ -10,6 +10,8 @@
 #include <QString>
 #include <QMap>
 #include <QTimer>
+#include <QLabel>
+#include <QPropertyAnimation>
 
 QT_BEGIN_NAMESPACE
 
@@ -30,6 +32,8 @@ public:
     void showError(const QString &msg);
 
     void WordChange(const QString &text);
+
+    void WordReset();
 
     void updateTable();
 
@@ -55,7 +59,23 @@ public:
 
     void runMachine();
 
-    void testSteps(int stepsCount);
+    void startMachine();
+
+    void updateViewOffset();
+
+    void updateTapeView();
+
+    void highlightCurrent();
+
+    void updateHeadPosition();
+
+    void animateTapeShift(int delta);
+
+    void setUiRunning(bool running);
+
+    void blockButtons(bool running);
+
+    bool validateRules();
 
 
 private slots:
@@ -76,6 +96,11 @@ private:
     int currentState = 0;
     bool isRunning = false;
     QTimer *timer;
+    int viewOffset = -6;
+    QLabel *headLabel;
+    QPropertyAnimation *headAnim;
+    QPropertyAnimation *tapeAnim;
+    int lastViewOffset = 0;
 
 };
 #endif // MAINWINDOW_H

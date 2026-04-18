@@ -1,0 +1,20 @@
+{
+	"BUILD_DIR" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen",
+	"CMAKE_BINARY_DIR" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/vladimir/projects/MTpraks/Mtprak",
+	"CMAKE_SOURCE_DIR" : "/home/vladimir/projects/MTpraks/Mtprak",
+	"GENERATOR" : "Unix Makefiles",
+	"INCLUDE_DIR" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/include",
+	"INPUTS" : [ "/home/vladimir/projects/MTpraks/Mtprak/arrow" ],
+	"LOCK_FILE" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resourses" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resourses.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt6/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/vladimir/projects/MTpraks/Mtprak/resourses.qrc",
+	"VERBOSITY" : 0
+}

@@ -209,7 +209,8 @@
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6LinguistTools/Qt6LinguistToolsVersionlessTargets.cmake",
 		"/usr/lib/x86_64-linux-gnu/cmake/Qt6LinguistTools/Qt6LinguistToolsMacros.cmake",
 		"/usr/share/cmake-3.28/Modules/CMakeParseArguments.cmake",
-		"/usr/share/cmake-3.28/Modules/GNUInstallDirs.cmake"
+		"/usr/share/cmake-3.28/Modules/GNUInstallDirs.cmake",
+		"/home/vladimir/projects/MTpraks/Mtprak/resourses.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/vladimir/projects/MTpraks/Mtprak",
 	"DEP_FILE" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/Mtprak_autogen/deps",
