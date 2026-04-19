@@ -12,6 +12,8 @@
 #include <QTimer>
 #include <QLabel>
 #include <QPropertyAnimation>
+#include <functional>
+#include <queue>
 
 QT_BEGIN_NAMESPACE
 
@@ -85,6 +87,10 @@ public:
 
     bool validateRules();
 
+    void enqueueAnimation(std::function<void()> animFunc);
+
+    void runNextAnimation();
+
 
 private slots:
     void AlphabetEnterOpen();
@@ -104,12 +110,14 @@ private:
     int currentState = 0;
     bool isRunning = false;
     QTimer *timer;
-    bool isAnimating = false;
     int viewOffset = -6;
     QLabel *headLabel;
     QPropertyAnimation *headAnim;
     QPropertyAnimation *tapeAnim;
     int lastViewOffset = 0;
+
+    std::queue<std::function<void()>> animationQueue;
+    bool isAnimating = false;
 
 };
 #endif // MAINWINDOW_H

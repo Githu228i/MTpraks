@@ -9,7 +9,10 @@
 	"INPUTS" : 
 	[
 		"/home/vladimir/projects/MTpraks/Mtprak/arrow",
-		"/home/vladimir/projects/MTpraks/Mtprak/one_step"
+		"/home/vladimir/projects/MTpraks/Mtprak/stop",
+		"/home/vladimir/projects/MTpraks/Mtprak/run",
+		"/home/vladimir/projects/MTpraks/Mtprak/one_step",
+		"/home/vladimir/projects/MTpraks/Mtprak/pause"
 	],
 	"LOCK_FILE" : "/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,

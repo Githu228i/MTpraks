@@ -19,9 +19,14 @@
      <rect>
       <x>60</x>
       <y>610</y>
-      <width>331</width>
+      <width>351</width>
       <height>71</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Изменить алфавит</string>
@@ -30,9 +35,9 @@
    <widget class="QLineEdit" name="WordEnter">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>70</x>
       <y>60</y>
-      <width>251</width>
+      <width>421</width>
       <height>61</height>
      </rect>
     </property>
@@ -40,11 +45,16 @@
    <widget class="QLabel" name="WordOnText">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>70</x>
       <y>30</y>
-      <width>181</width>
+      <width>221</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Введите новое слово: </string>
@@ -53,11 +63,16 @@
    <widget class="QPushButton" name="GetWordBut">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>550</x>
       <y>40</y>
       <width>221</width>
       <height>81</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Загрузить слово</string>
@@ -78,22 +93,32 @@
      <rect>
       <x>60</x>
       <y>560</y>
-      <width>151</width>
+      <width>171</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Добавить состояние:</string>
+     <string>Добавить состояние</string>
     </property>
    </widget>
    <widget class="QPushButton" name="removeStateBut">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>240</x>
       <y>560</y>
-      <width>151</width>
+      <width>171</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Удалить состояние</string>
@@ -117,8 +142,8 @@
     </property>
     <property name="iconSize">
      <size>
-      <width>64</width>
-      <height>64</height>
+      <width>90</width>
+      <height>90</height>
      </size>
     </property>
    </widget>
@@ -132,7 +157,17 @@
      </rect>
     </property>
     <property name="text">
-     <string>Run</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resourses.qrc">
+      <normaloff>:/run</normaloff>:/run</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>90</width>
+      <height>90</height>
+     </size>
     </property>
    </widget>
    <widget class="QPushButton" name="stopBut">
@@ -145,7 +180,17 @@
      </rect>
     </property>
     <property name="text">
-     <string>Pause</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resourses.qrc">
+      <normaloff>:/pause</normaloff>:/pause</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>80</width>
+      <height>80</height>
+     </size>
     </property>
    </widget>
    <widget class="QTableWidget" name="TapeView">
@@ -168,7 +213,17 @@
      </rect>
     </property>
     <property name="text">
-     <string>Stop</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="resourses.qrc">
+      <normaloff>:/stop</normaloff>:/stop</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>100</height>
+     </size>
     </property>
    </widget>
    <widget class="QLabel" name="CurWordIs">
@@ -182,7 +237,7 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>30</pointsize>
+      <pointsize>20</pointsize>
      </font>
     </property>
     <property name="text">
@@ -192,7 +247,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="CurWordLabel">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -209,7 +264,7 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>590</y>
+      <y>610</y>
       <width>301</width>
       <height>61</height>
      </rect>
@@ -221,6 +276,24 @@
     </property>
     <property name="orientation">
      <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="SpeedChangeLabel">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>580</y>
+      <width>201</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Изменение скорости:</string>
     </property>
    </widget>
   </widget>

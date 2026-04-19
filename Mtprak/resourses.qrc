@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>arrow</file>
         <file>one_step</file>
+        <file>pause</file>
+        <file>run</file>
+        <file>stop</file>
     </qresource>
 </RCC>

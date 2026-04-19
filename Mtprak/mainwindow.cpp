@@ -8,7 +8,6 @@
 #include <algorithm>
 #include <QDebug>
 
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -49,8 +48,12 @@ MainWindow::MainWindow(QWidget *parent)
 
         ui->speedSlider->setMinimum(300);
         ui->speedSlider->setMaximum(2000);
-        ui->speedSlider->setValue(1000); // стартовая скорость
+        ui->speedSlider->setValue(1000);
+        ui->speedSlider->valueChanged(ui->speedSlider->value());
+        ui->speedSlider->setFixedHeight(40);
     });
+
+
 
 
 //connecters:
@@ -75,11 +78,48 @@ MainWindow::MainWindow(QWidget *parent)
 
     });
     connect(ui->speedSlider, &QSlider::valueChanged, this, [this](int value) {
-        int interval = 2000 - value;   // инверсия (вправо = быстрее)
-        if (interval < 300) interval = 300; // защита от 0
+        int interval = 2000 - value;
+        if (interval < 200) interval = 200;
 
         timer->setInterval(interval);
         updateAnimationSpeed(interval);
+
+        int min = ui->speedSlider->minimum();
+        int max = ui->speedSlider->maximum();
+
+        double t = double(value - min) / (max - min);
+
+        int r = int(255 * t);
+        int g = int(255 * (1.0 - t));
+        int b = 0;
+
+        QString col = QColor(r, g, b).name();
+
+        ui->speedSlider->setStyleSheet(QString(R"(
+        QSlider::groove:horizontal {
+            height: 27px;
+            background: #ddd;
+            border-radius: 12px;
+        }
+
+        QSlider::sub-page:horizontal {
+            background: %1;
+            border-radius: 12px;
+        }
+
+        QSlider::add-page:horizontal {
+            background: #ddd;
+            border-radius: 12px;
+        }
+
+        QSlider::handle:horizontal {
+            width: 54px;
+            background: white;
+            border: 2px solid %1;
+            border-radius: 15px;
+            margin: -6px 0;
+        }
+    )").arg(col));
     });
 }
 
@@ -643,9 +683,7 @@ void MainWindow::updateHeadPosition()
     int col = head - viewOffset;
 
     if (col < 0 || col >= ui->TapeView->columnCount())
-    {
         return;
-    }
 
     QRect cellRect = ui->TapeView->visualRect(
         ui->TapeView->model()->index(0, col)
@@ -658,7 +696,6 @@ void MainWindow::updateHeadPosition()
 
     QPoint newPos(x, y);
 
-    // если первый раз — просто ставим
     if (!headLabel->isVisible())
     {
         headLabel->move(newPos);
@@ -666,84 +703,77 @@ void MainWindow::updateHeadPosition()
         return;
     }
 
-    // анимация
-    isAnimating = true;
+    enqueueAnimation([this, newPos]() {
 
-    headAnim->stop();
-    headAnim->setStartValue(headLabel->pos());
-    headAnim->setEndValue(newPos);
+        headAnim->stop();
+        disconnect(headAnim, nullptr, this, nullptr);
 
-    connect(headAnim, &QPropertyAnimation::finished, this, [this]() {
-        isAnimating = false;
+        headAnim->setStartValue(headLabel->pos());
+        headAnim->setEndValue(newPos);
+
+        connect(headAnim, &QPropertyAnimation::finished, this, [this]() {
+            runNextAnimation();
+        });
+
+        headAnim->start();
     });
-
-    headAnim->start();
 }
 
 void MainWindow::animateTapeShift(int direction)
 {
     if (direction == 0) return;
 
-    isAnimating = true;
+    enqueueAnimation([this, direction]() {
 
-    int cellWidth = ui->TapeView->columnWidth(0);
+        int cellWidth = ui->TapeView->columnWidth(0);
 
-    QPoint startPos = ui->TapeView->pos();
-    QPoint endPos = startPos;
-
-    headLabel->show();
-
-    if (direction > 0)
-        endPos.setX(startPos.x() - cellWidth);
-    else
-        endPos.setX(startPos.x() + cellWidth);
-
-    tapeAnim->stop();
-    disconnect(tapeAnim, nullptr, this, nullptr);
-
-    tapeAnim->setStartValue(startPos);
-    tapeAnim->setEndValue(endPos);
-
-    connect(tapeAnim, &QPropertyAnimation::finished, this, [this, direction, startPos]() {
-
-        int cols = ui->TapeView->columnCount();
+        QPoint startPos = ui->TapeView->pos();
+        QPoint endPos = startPos;
 
         if (direction > 0)
-        {
-            int newPos = viewOffset + cols;
-
-            ui->TapeView->insertColumn(cols);
-
-            QChar c = getSymbol(newPos);
-            ui->TapeView->setItem(0, cols, new QTableWidgetItem(QString(c)));
-
-            ui->TapeView->removeColumn(0);
-
-            viewOffset++;
-        }
+            endPos.setX(startPos.x() - cellWidth);
         else
-        {
-            ui->TapeView->insertColumn(0);
+            endPos.setX(startPos.x() + cellWidth);
 
-            int newPos = viewOffset - 1;
-            QChar c = getSymbol(newPos);
+        tapeAnim->stop();
+        disconnect(tapeAnim, nullptr, this, nullptr);
 
-            ui->TapeView->setItem(0, 0, new QTableWidgetItem(QString(c)));
+        tapeAnim->setStartValue(startPos);
+        tapeAnim->setEndValue(endPos);
 
-            ui->TapeView->removeColumn(ui->TapeView->columnCount() - 1);
+        connect(tapeAnim, &QPropertyAnimation::finished, this, [this, direction, startPos]() {
 
-            viewOffset--;
-        }
+            int cols = ui->TapeView->columnCount();
 
-        ui->TapeView->move(startPos);
+            if (direction > 0)
+            {
+                int newPos = viewOffset + cols;
 
-        updateHeaders();
-        updateHeadPosition();
+                ui->TapeView->insertColumn(cols);
+                ui->TapeView->setItem(0, cols, new QTableWidgetItem(QString(getSymbol(newPos))));
+                ui->TapeView->removeColumn(0);
 
-        isAnimating = false;
+                viewOffset++;
+            }
+            else
+            {
+                ui->TapeView->insertColumn(0);
+
+                int newPos = viewOffset - 1;
+                ui->TapeView->setItem(0, 0, new QTableWidgetItem(QString(getSymbol(newPos))));
+                ui->TapeView->removeColumn(ui->TapeView->columnCount() - 1);
+
+                viewOffset--;
+            }
+
+            ui->TapeView->move(startPos);
+            updateHeaders();
+
+            runNextAnimation(); // ← запускаем следующую
+        });
+
+        tapeAnim->start();
     });
-
-    tapeAnim->start();
 }
 
 void MainWindow::updateHeaders()
@@ -772,25 +802,18 @@ void MainWindow::updateAnimationSpeed(int interval)
 
 void MainWindow::setUiRunning(bool running)
 {
-    // Таблица правил
+    ui->GetWordBut->setEnabled(!running);
     ui->RulesTable->setEnabled(!running);
-
-    // Ввод слова и алфавита
     ui->WordEnter->setEnabled(!running);
     ui->AlphabetEnterBut->setEnabled(!running);
-
-    // Кнопки управления
     ui->addStateBut->setEnabled(!running);
     ui->removeStateBut->setEnabled(!running);
-
-    // Кнопка стоп наоборот
     ui->stopBut->setEnabled(running);
     ui->stopBut2->setEnabled(running);
 }
 
 void MainWindow::blockButtons(bool running)
 {
-    // Кнопка стоп
     ui->runBut->setEnabled(!running);
     ui->startBut->setEnabled(!running);
     ui->stopBut->setEnabled(!running);
@@ -814,4 +837,28 @@ bool MainWindow::validateRules()
     }
 
     return true;
+}
+
+void MainWindow::enqueueAnimation(std::function<void()> animFunc)
+{
+    animationQueue.push(animFunc);
+
+    if (!isAnimating)
+        runNextAnimation();
+}
+
+void MainWindow::runNextAnimation()
+{
+    if (animationQueue.empty())
+    {
+        isAnimating = false;
+        return;
+    }
+
+    isAnimating = true;
+
+    auto anim = animationQueue.front();
+    animationQueue.pop();
+
+    anim(); // запускаем следующую
 }

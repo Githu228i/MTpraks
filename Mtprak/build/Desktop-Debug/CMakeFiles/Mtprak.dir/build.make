@@ -79,7 +79,10 @@ Mtprak_autogen/timestamp: CMakeFiles/Mtprak.dir/compiler_depend.ts
 Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/resourses.qrc
 Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Info.json
 Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/arrow
+Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/stop
+Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/run
 Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/one_step
+Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /home/vladimir/projects/MTpraks/Mtprak/pause
 Mtprak_autogen/EWIEGA46WW/qrc_resourses.cpp: /usr/lib/qt6/libexec/rcc
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Automatic RCC for resourses.qrc"
 	/usr/bin/cmake -E cmake_autorcc /home/vladimir/projects/MTpraks/Mtprak/build/Desktop-Debug/CMakeFiles/Mtprak_autogen.dir/AutoRcc_resourses_EWIEGA46WW_Info.json Debug
