@@ -6,6 +6,7 @@
 
 //my includes:
 #include <algorithm>
+#include <cstdlib>
 #include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -34,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     tapeAnim->setDuration(150);
 
     timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &MainWindow::step);
+    connect(timer, &QTimer::timeout, this, &MainWindow::doStepSafe);
 
     headAnim = new QPropertyAnimation(headLabel, "pos", this);
     headAnim->setDuration(200); // скорость (мс)
@@ -56,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-//connecters:
+    //connecters:
     connect(ui->AlphabetEnterBut, &QPushButton::clicked, this, &MainWindow::AlphabetEnterOpen);
     connect(ui->GetWordBut, &QPushButton::clicked, this, [this]() {
         WordChange(ui->WordEnter->text());
@@ -398,31 +399,31 @@ void MainWindow::collectRules() {
     }
     //check rules
     {
-    //qDebug() << "=== RULES ===";
-    // for (const Rule &r : Rules)
-    // {
-    //     qDebug() << "from q" << r.fromState
-    //              << "input:" << r.input
-    //              << "| write:" << (r.hasWrite ? QString(r.write) : "-")
-    //              << "| dir:" << (r.hasDir ? QString(r.dir) : "-")
-    //              << "| to q" << (r.hasState ? QString::number(r.toState) : "-");
-    // }
+        //qDebug() << "=== RULES ===";
+        // for (const Rule &r : Rules)
+        // {
+        //     qDebug() << "from q" << r.fromState
+        //              << "input:" << r.input
+        //              << "| write:" << (r.hasWrite ? QString(r.write) : "-")
+        //              << "| dir:" << (r.hasDir ? QString(r.dir) : "-")
+        //              << "| to q" << (r.hasState ? QString::number(r.toState) : "-");
+        // }
     }
     //check tape
     {
-    // tape.clear();
-    // head = 0;
-    // setSymbol(0, 'a');
-    // setSymbol(1, 'b');
-    // setSymbol(-1, 'c');
-    // qDebug() << getSymbol(-1) << getSymbol(0) << getSymbol(1) << getSymbol(2) << getSymbol(472387);
+        // tape.clear();
+        // head = 0;
+        // setSymbol(0, 'a');
+        // setSymbol(1, 'b');
+        // setSymbol(-1, 'c');
+        // qDebug() << getSymbol(-1) << getSymbol(0) << getSymbol(1) << getSymbol(2) << getSymbol(472387);
     }
     //check tapeloading
     {
-    // loadWordToTape();
-    // for (int i = -1; i < 5; i++){
-    //     qDebug() << i << ":" << getSymbol(i);
-    // }
+        // loadWordToTape();
+        // for (int i = -1; i < 5; i++){
+        //     qDebug() << i << ":" << getSymbol(i);
+        // }
     }
 }
 
@@ -508,9 +509,14 @@ void MainWindow::step()
                      << "head" << head
                      << "symbol" << getSymbol(head);
 
+            int leftEdge = viewOffset;
+            int rightEdge = viewOffset + 19;
+            bool needShift = (head > rightEdge || head < leftEdge);
+
             updateViewOffset();
             highlightCurrent();
-            updateHeadPosition();
+            if (!needShift)
+                updateHeadPosition();
 
             return; // правило найдено → выходим
         }
@@ -580,7 +586,7 @@ void MainWindow::startMachine(){
 
         if (!validateRules()){
             showError("В правилах присутствует несуществующее состояние! Ошибка запуска!");
-        return;
+            return;
         }
 
         if (Word == ""){
@@ -605,11 +611,12 @@ void MainWindow::updateViewOffset()
 {
     int leftEdge = viewOffset;
     int rightEdge = viewOffset + 19;
+    const int shiftCells = 7;
 
     if (head > rightEdge)
-        animateTapeShift(+1);
+        animateTapeShift(+shiftCells);
     else if (head < leftEdge)
-        animateTapeShift(-1);
+        animateTapeShift(-shiftCells);
 }
 
 void MainWindow::updateTapeView()
@@ -724,55 +731,80 @@ void MainWindow::animateTapeShift(int direction)
     if (direction == 0) return;
 
     enqueueAnimation([this, direction]() {
+        const int shiftCells = std::abs(direction);
+        const int dirSign = (direction > 0) ? 1 : -1;
 
         int cellWidth = ui->TapeView->columnWidth(0);
+        const int deltaX = -dirSign * cellWidth * shiftCells;
 
         QPoint startPos = ui->TapeView->pos();
         QPoint endPos = startPos;
+        QPoint headStartPos = headLabel->pos();
+        QPoint headEndPos = headStartPos;
 
-        if (direction > 0)
-            endPos.setX(startPos.x() - cellWidth);
-        else
-            endPos.setX(startPos.x() + cellWidth);
+        endPos.setX(startPos.x() + deltaX);
+        headEndPos.setX(headStartPos.x() + deltaX);
 
         tapeAnim->stop();
+        headAnim->stop();
         disconnect(tapeAnim, nullptr, this, nullptr);
+        disconnect(headAnim, nullptr, this, nullptr);
 
         tapeAnim->setStartValue(startPos);
         tapeAnim->setEndValue(endPos);
+        headAnim->setStartValue(headStartPos);
+        headAnim->setEndValue(headEndPos);
 
-        connect(tapeAnim, &QPropertyAnimation::finished, this, [this, direction, startPos]() {
+        connect(tapeAnim, &QPropertyAnimation::finished, this, [this, dirSign, shiftCells, startPos]() {
 
             int cols = ui->TapeView->columnCount();
 
-            if (direction > 0)
-            {
-                int newPos = viewOffset + cols;
+            for (int i = 0; i < shiftCells; ++i) {
+                if (dirSign > 0)
+                {
+                    int newPos = viewOffset + cols;
 
-                ui->TapeView->insertColumn(cols);
-                ui->TapeView->setItem(0, cols, new QTableWidgetItem(QString(getSymbol(newPos))));
-                ui->TapeView->removeColumn(0);
+                    ui->TapeView->insertColumn(cols);
+                    ui->TapeView->setItem(0, cols, new QTableWidgetItem(QString(getSymbol(newPos))));
+                    ui->TapeView->removeColumn(0);
 
-                viewOffset++;
-            }
-            else
-            {
-                ui->TapeView->insertColumn(0);
+                    viewOffset++;
+                }
+                else
+                {
+                    ui->TapeView->insertColumn(0);
 
-                int newPos = viewOffset - 1;
-                ui->TapeView->setItem(0, 0, new QTableWidgetItem(QString(getSymbol(newPos))));
-                ui->TapeView->removeColumn(ui->TapeView->columnCount() - 1);
+                    int newPos = viewOffset - 1;
+                    ui->TapeView->setItem(0, 0, new QTableWidgetItem(QString(getSymbol(newPos))));
+                    ui->TapeView->removeColumn(ui->TapeView->columnCount() - 1);
 
-                viewOffset--;
+                    viewOffset--;
+                }
             }
 
             ui->TapeView->move(startPos);
             updateHeaders();
 
+            int col = head - viewOffset;
+            if (col >= 0 && col < ui->TapeView->columnCount())
+            {
+                QRect cellRect = ui->TapeView->visualRect(
+                    ui->TapeView->model()->index(0, col)
+                    );
+                QPoint tablePos = ui->TapeView->viewport()->mapTo(this, cellRect.topLeft());
+                int x = tablePos.x() + cellRect.width() / 2 - headLabel->width() / 2;
+                int y = tablePos.y() + cellRect.height() + 2;
+
+                headAnim->stop();
+                disconnect(headAnim, nullptr, this, nullptr);
+                headLabel->move(QPoint(x, y));
+            }
+
             runNextAnimation(); // ← запускаем следующую
         });
 
         tapeAnim->start();
+        headAnim->start();
     });
 }
 
