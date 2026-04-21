@@ -7,20 +7,14 @@ class Rule
 {
 public:
     Rule();
+    int fromState;
+    QChar input;
 
-    // откуда
-    int fromState;   // строка (q0 → 0)
-    QChar input;     // символ (столбец)
-
-    // что делаем
     bool hasWrite;
     QChar write;
-
     bool hasDir;
-    QChar dir;       // '>' или '<'
-
+    QChar dir;
     bool hasState;
-    int toState;     // q1 → 1
+    int toState;
 };
-
 #endif // RULE_H
