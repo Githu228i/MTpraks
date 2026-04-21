@@ -26,10 +26,10 @@ MainWindow::MainWindow(QWidget *parent)
     headLabel = new QLabel(this);
     headLabel->setPixmap(QPixmap(":/arrow"));
     headLabel->setScaledContents(true);
-    headLabel->setFixedSize(30, 30); // подгони под размер ячейки
+    headLabel->setFixedSize(30, 30);
     headLabel->hide();
 
-    headLabel->raise(); // чтобы была поверх таблицы
+    headLabel->raise();
 
     tapeAnim = new QPropertyAnimation(ui->TapeView, "pos", this);
     tapeAnim->setDuration(150);
@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, &QTimer::timeout, this, &MainWindow::doStepSafe);
 
     headAnim = new QPropertyAnimation(headLabel, "pos", this);
-    headAnim->setDuration(200); // скорость (мс)
+    headAnim->setDuration(200); // speed in ms
 
     QTimer::singleShot(0, this, [this]() {
         updateTapeView();
@@ -131,11 +131,10 @@ MainWindow::~MainWindow()
 
 //My coms:
 
-void MainWindow::AlphabetEnterOpen()
-{
+void MainWindow::AlphabetEnterOpen() {
     AlphabetEnter AlphaWindow(this); // new window
 
-    if (AlphaWindow.exec() == QDialog::Accepted) // Entering new alphabets
+    if (AlphaWindow.exec() == QDialog::Accepted)
     {
         QString MainText = AlphaWindow.MainGetter(), AddText = AlphaWindow.AddGetter();
         Alphabet.clear();
@@ -160,8 +159,7 @@ void MainWindow::AlphabetEnterOpen()
     }
 }
 
-void MainWindow::showError(const QString &msg)
-{
+void MainWindow::showError(const QString &msg) {
     statusBar()->showMessage(msg, 2000);
 }
 
@@ -220,15 +218,14 @@ void MainWindow::updateTable() {
     for (QChar c : AlphaList) headers << QString(c);
     headers << QString('^');
     for (QChar c : AddAlphaList) headers << QString(c);
-    ui->RulesTable->setColumnCount(headers.size()); // задаём количество колонок
+    ui->RulesTable->setColumnCount(headers.size());
     ui->RulesTable->setHorizontalHeaderLabels(headers);
 
     ui->RulesTable->setRowCount(1);
     ui->RulesTable->setVerticalHeaderItem(0, new QTableWidgetItem("q0"));
 }
 
-void MainWindow::addState()
-{
+void MainWindow::addState() {
     if(Alphabet.isEmpty()) {
         showError("Сначала введите алфавит");
         return;
@@ -250,8 +247,7 @@ void MainWindow::removeState() {
     ui->RulesTable->removeRow(rows - 1);
 }
 
-void MainWindow::ruleChanged(int row, int col)
-{
+void MainWindow::ruleChanged(int row, int col) {
     QTableWidgetItem *item = ui->RulesTable->item(row, col);
     if (!item) return;
 
@@ -273,10 +269,8 @@ void MainWindow::ruleChanged(int row, int col)
     for (const QString &part : parts)
     {
         // dir check
-        if (part == ">" || part == "<")
-        {
-            if (hasDir)
-            {
+        if (part == ">" || part == "<") {
+            if (hasDir) {
                 showError("Нельзя вводить 2 направления");
 
                 ui->RulesTable->blockSignals(true);
@@ -289,8 +283,7 @@ void MainWindow::ruleChanged(int row, int col)
             hasDir = true;
         }
         // simbol check
-        else if (part.size() == 1)
-        {
+        else if (part.size() == 1) {
             if (hasWrite)
             {
                 showError("Нельзя вводить 2 символа");
@@ -313,10 +306,8 @@ void MainWindow::ruleChanged(int row, int col)
             hasWrite = true;
         }
         // state check
-        else if (part.startsWith('q'))
-        {
-            if (hasState)
-            {
+        else if (part.startsWith('q')) {
+            if (hasState) {
                 showError("Нельзя вводить 2 состояния");
 
                 ui->RulesTable->blockSignals(true);
@@ -324,13 +315,11 @@ void MainWindow::ruleChanged(int row, int col)
                 ui->RulesTable->blockSignals(false);
                 return;
             }
-
             state = part;
             hasState = true;
         }
         // trash check
-        else
-        {
+        else {
             showError("Неверный формат");
 
             ui->RulesTable->blockSignals(true);
@@ -343,11 +332,7 @@ void MainWindow::ruleChanged(int row, int col)
 
 Rule MainWindow::parseRule(int row, int col, const QString &text) {
     Rule rule;
-
-    // откуда
     rule.fromState = row;
-
-    // символ берём из заголовка столбца
     QString header = ui->RulesTable->horizontalHeaderItem(col)->text();
     rule.input = header[0];
 
@@ -355,22 +340,19 @@ Rule MainWindow::parseRule(int row, int col, const QString &text) {
 
     for (const QString &part : parts)
     {
-        // направление
         if (part == ">" || part == "<")
         {
             rule.dir = part[0];
             rule.hasDir = true;
         }
-        // символ
         else if (part.size() == 1)
         {
             rule.write = part[0];
             rule.hasWrite = true;
         }
-        // состояние
         else if (part.startsWith('q'))
         {
-            QString num = part.mid(1); // убрали 'q'
+            QString num = part.mid(1);
             rule.toState = num.toInt();
             rule.hasState = true;
         }
@@ -390,40 +372,10 @@ void MainWindow::collectRules() {
         {
             QTableWidgetItem *item = ui->RulesTable->item(i, j);
             if (!item) continue;
-
             QString text = item->text().trimmed();
             if (text.isEmpty()) continue;
-
             Rules.push_back(parseRule(i, j, text));
         }
-    }
-    //check rules
-    {
-        //qDebug() << "=== RULES ===";
-        // for (const Rule &r : Rules)
-        // {
-        //     qDebug() << "from q" << r.fromState
-        //              << "input:" << r.input
-        //              << "| write:" << (r.hasWrite ? QString(r.write) : "-")
-        //              << "| dir:" << (r.hasDir ? QString(r.dir) : "-")
-        //              << "| to q" << (r.hasState ? QString::number(r.toState) : "-");
-        // }
-    }
-    //check tape
-    {
-        // tape.clear();
-        // head = 0;
-        // setSymbol(0, 'a');
-        // setSymbol(1, 'b');
-        // setSymbol(-1, 'c');
-        // qDebug() << getSymbol(-1) << getSymbol(0) << getSymbol(1) << getSymbol(2) << getSymbol(472387);
-    }
-    //check tapeloading
-    {
-        // loadWordToTape();
-        // for (int i = -1; i < 5; i++){
-        //     qDebug() << i << ":" << getSymbol(i);
-        // }
     }
 }
 
@@ -433,65 +385,50 @@ QChar MainWindow::getSymbol(int pos) {
     return '^';
 }
 
-void MainWindow::setSymbol(int pos, QChar c)
-{
+void MainWindow::setSymbol(int pos, QChar c) {
     if (c == '^')
         tape.remove(pos);
     else
         tape[pos] = c;
 }
 
-void MainWindow::loadWordToTape()
-{
+void MainWindow::loadWordToTape() {
     tape.clear();
     for (int i = 0; i < Word.size(); i++) {
         setSymbol(i, Word[i]);
     }
     head = 0;
 
-    viewOffset = -6; // ← фиксируем старт как в ТЗ
+    viewOffset = -6;
 
     updateTapeView();
     updateHeadPosition();
     headLabel->show();
 }
 
-void MainWindow::updateCell(int pos)
-{
+void MainWindow::updateCell(int pos) {
     int col = pos - viewOffset;
-
-    if (col < 0 || col >= ui->TapeView->columnCount())
-        return;
-
+    if (col < 0 || col >= ui->TapeView->columnCount()) return;
     QTableWidgetItem *item = ui->TapeView->item(0, col);
-
-    if (!item)
-    {
+    if (!item) {
         item = new QTableWidgetItem();
         ui->TapeView->setItem(0, col, item);
     }
-
     item->setText(QString(getSymbol(pos)));
 }
 
-void MainWindow::step()
-{
+void MainWindow::step() {
     if (!isRunning) return;
     QChar current = getSymbol(head);
-
-    // ищем правило
     for (const Rule &r : Rules)
     {
         if (r.fromState == currentState && r.input == current)
         {
-            // 1. запись
             if (r.hasWrite)
             {
                 setSymbol(head, r.write);
                 updateCell(head);
             }
-
-            // 2. движение
             if (r.hasDir)
             {
                 if (r.dir == '>')
@@ -499,15 +436,10 @@ void MainWindow::step()
                 else if (r.dir == '<')
                     head--;
             }
-
-            // 3. смена состояния
             if (r.hasState)
                 currentState = r.toState;
 
-            qDebug() << "STEP:"
-                     << "state q" << currentState
-                     << "head" << head
-                     << "symbol" << getSymbol(head);
+            //qDebug() << "STEP:" << "state q" << currentState << "head" << head << "symbol" << getSymbol(head);
 
             int leftEdge = viewOffset;
             int rightEdge = viewOffset + 19;
@@ -518,36 +450,29 @@ void MainWindow::step()
             if (!needShift)
                 updateHeadPosition();
 
-            return; // правило найдено → выходим
+            return;
         }
     }
-
-    // если правило не найдено
-    qDebug() << "NO RULE → STOP";
+    //qDebug() << "NO RULE → STOP";
     stopMachine();
 }
 
-void MainWindow::stopMachine()
-{
+void MainWindow::stopMachine() {
     isRunning = false;
     timer->stop();
-    qDebug() << "MACHINE STOPPED";
+    //qDebug() << "MACHINE STOPPED";
     setUiRunning(false);
 }
 
-void MainWindow::doStepSafe()
-{
-    if (isAnimating)
-    {
+void MainWindow::doStepSafe() {
+    if (isAnimating){
         QTimer::singleShot(10, this, &MainWindow::doStepSafe);
         return;
     }
-
     step();
 }
 
-void MainWindow::StartMachineForOneStep()
-{
+void MainWindow::StartMachineForOneStep() {
     startMachine();
     if (timer->isActive())
         timer->stop();
@@ -555,7 +480,6 @@ void MainWindow::StartMachineForOneStep()
     ui->runBut->setEnabled(false);
     ui->stopBut->setEnabled(false);
     ui->stopBut2->setEnabled(false);
-
     int delay = timer->interval() * 1.2;
 
     doStepSafe();
@@ -569,32 +493,26 @@ void MainWindow::StartMachineForOneStep()
 
     });
 }
-void MainWindow::runMachine()
-{
+void MainWindow::runMachine() {
     startMachine();
-
-    if (timer->isActive())
-        return;
-
+    if (timer->isActive()) return;
     timer->start();
 }
 
-void MainWindow::startMachine(){
+void MainWindow::startMachine() {
     if (!isRunning)
     {
         collectRules();
-
-        if (!validateRules()){
+        if (!validateRules()) {
             showError("В правилах присутствует несуществующее состояние! Ошибка запуска!");
             return;
         }
-
-        if (Word == ""){
+        if (Word == "") {
             showError("Пустое слово! Ошибка запуска!");
             return;
         }
 
-        if (Rules.isEmpty()){
+        if (Rules.isEmpty()) {
             showError("Не записано ни одного правила! Ошибка запуска!");
             return;
         }
@@ -607,133 +525,88 @@ void MainWindow::startMachine(){
     }
 }
 
-void MainWindow::updateViewOffset()
-{
+void MainWindow::updateViewOffset() {
     int leftEdge = viewOffset;
     int rightEdge = viewOffset + 19;
     const int shiftCells = 7;
-
-    if (head > rightEdge)
-        animateTapeShift(+shiftCells);
-    else if (head < leftEdge)
-        animateTapeShift(-shiftCells);
+    if (head > rightEdge) animateTapeShift(+shiftCells);
+    else if (head < leftEdge) animateTapeShift(-shiftCells);
 }
 
-void MainWindow::updateTapeView()
-{
+void MainWindow::updateTapeView() {
     ui->TapeView->clear();
-
     int size = 20;
-
     ui->TapeView->setRowCount(1);
     ui->TapeView->setColumnCount(size);
-
     QStringList headers;
-
     for (int i = 0; i < size; i++)
     {
         int pos = viewOffset + i;
         headers << QString::number(pos);
-
         QChar c = getSymbol(pos);
         QTableWidgetItem *item = new QTableWidgetItem(QString(c));
         ui->TapeView->setItem(0, i, item);
     }
-
     ui->TapeView->setHorizontalHeaderLabels(headers);
 }
 
-void MainWindow::highlightCurrent()
-{
+void MainWindow::highlightCurrent() {
     int rows = ui->RulesTable->rowCount();
     int cols = ui->RulesTable->columnCount();
-
-    // 1. Сброс всей подсветки
-    for (int i = 0; i < rows; i++)
-    {
+    for (int i = 0; i < rows; i++) { // highlight reset
         for (int j = 0; j < cols; j++)
         {
             QTableWidgetItem *item = ui->RulesTable->item(i, j);
-            if (item)
-                item->setBackground(QBrush());
+            if (item) item->setBackground(QBrush());
         }
     }
-
-    // 2. Подсветка строки текущего состояния
-    for (int j = 0; j < cols; j++)
-    {
+    for (int j = 0; j < cols; j++) { // row highlight
         QTableWidgetItem *item = ui->RulesTable->item(currentState, j);
-        if (item)
-            item->setBackground(Qt::yellow);
+        if (item) item->setBackground(Qt::yellow);
     }
-
-    // 3. Подсветка активного правила
     QChar current = getSymbol(head);
-
-    for (int j = 0; j < cols; j++)
+    for (int j = 0; j < cols; j++) // active rule highlight
     {
         QString header = ui->RulesTable->horizontalHeaderItem(j)->text();
-
         if (!header.isEmpty() && header[0] == current)
         {
             QTableWidgetItem *item = ui->RulesTable->item(currentState, j);
-            if (item)
-                item->setBackground(QColor(200, 150, 0)); // перекрывает серый
-
+            if (item) item->setBackground(QColor(200, 150, 0));
             break;
         }
     }
 }
 
-void MainWindow::updateHeadPosition()
-{
+void MainWindow::updateHeadPosition() {
     int col = head - viewOffset;
-
-    if (col < 0 || col >= ui->TapeView->columnCount())
-        return;
-
-    QRect cellRect = ui->TapeView->visualRect(
-        ui->TapeView->model()->index(0, col)
-        );
-
+    if (col < 0 || col >= ui->TapeView->columnCount()) return;
+    QRect cellRect = ui->TapeView->visualRect(ui->TapeView->model()->index(0, col));
     QPoint tablePos = ui->TapeView->viewport()->mapTo(this, cellRect.topLeft());
-
     int x = tablePos.x() + cellRect.width() / 2 - headLabel->width() / 2;
     int y = tablePos.y() + cellRect.height() + 2;
-
     QPoint newPos(x, y);
-
     if (!headLabel->isVisible())
     {
         headLabel->move(newPos);
         headLabel->show();
         return;
     }
-
     enqueueAnimation([this, newPos]() {
-
         headAnim->stop();
         disconnect(headAnim, nullptr, this, nullptr);
-
         headAnim->setStartValue(headLabel->pos());
         headAnim->setEndValue(newPos);
-
-        connect(headAnim, &QPropertyAnimation::finished, this, [this]() {
-            runNextAnimation();
-        });
-
+        connect(headAnim, &QPropertyAnimation::finished, this, [this]() { runNextAnimation(); });
         headAnim->start();
     });
 }
 
-void MainWindow::animateTapeShift(int direction)
-{
+void MainWindow::animateTapeShift(int direction) {
     if (direction == 0) return;
 
     enqueueAnimation([this, direction]() {
         const int shiftCells = std::abs(direction);
         const int dirSign = (direction > 0) ? 1 : -1;
-
         int cellWidth = ui->TapeView->columnWidth(0);
         const int deltaX = -dirSign * cellWidth * shiftCells;
 
@@ -755,36 +628,28 @@ void MainWindow::animateTapeShift(int direction)
         headAnim->setStartValue(headStartPos);
         headAnim->setEndValue(headEndPos);
 
-        connect(tapeAnim, &QPropertyAnimation::finished, this, [this, dirSign, shiftCells, startPos]() {
-
+        connect(tapeAnim, &QPropertyAnimation::finished, this, [this, dirSign, shiftCells, startPos]() { // Add new cols
             int cols = ui->TapeView->columnCount();
-
             for (int i = 0; i < shiftCells; ++i) {
                 if (dirSign > 0)
                 {
                     int newPos = viewOffset + cols;
-
                     ui->TapeView->insertColumn(cols);
                     ui->TapeView->setItem(0, cols, new QTableWidgetItem(QString(getSymbol(newPos))));
                     ui->TapeView->removeColumn(0);
-
                     viewOffset++;
                 }
                 else
                 {
                     ui->TapeView->insertColumn(0);
-
                     int newPos = viewOffset - 1;
                     ui->TapeView->setItem(0, 0, new QTableWidgetItem(QString(getSymbol(newPos))));
                     ui->TapeView->removeColumn(ui->TapeView->columnCount() - 1);
-
                     viewOffset--;
                 }
             }
-
             ui->TapeView->move(startPos);
             updateHeaders();
-
             int col = head - viewOffset;
             if (col >= 0 && col < ui->TapeView->columnCount())
             {
@@ -794,46 +659,35 @@ void MainWindow::animateTapeShift(int direction)
                 QPoint tablePos = ui->TapeView->viewport()->mapTo(this, cellRect.topLeft());
                 int x = tablePos.x() + cellRect.width() / 2 - headLabel->width() / 2;
                 int y = tablePos.y() + cellRect.height() + 2;
-
                 headAnim->stop();
                 disconnect(headAnim, nullptr, this, nullptr);
                 headLabel->move(QPoint(x, y));
             }
-
-            runNextAnimation(); // ← запускаем следующую
+            runNextAnimation();
         });
-
         tapeAnim->start();
         headAnim->start();
     });
 }
 
-void MainWindow::updateHeaders()
-{
+void MainWindow::updateHeaders() {
     int cols = ui->TapeView->columnCount();
     QStringList headers;
-
-    for (int i = 0; i < cols; i++)
-    {
+    for (int i = 0; i < cols; i++) {
         headers << QString::number(viewOffset + i);
     }
 
     ui->TapeView->setHorizontalHeaderLabels(headers);
 }
 
-void MainWindow::updateAnimationSpeed(int interval)
-{
-    int animDuration = interval * 0.8; // чуть быстрее шага
-
-    if (animDuration < 20)
-        animDuration = 20;
-
+void MainWindow::updateAnimationSpeed(int interval) {
+    int animDuration = interval * 0.8;
+    if (animDuration < 150) animDuration = 150;
     headAnim->setDuration(animDuration);
     tapeAnim->setDuration(animDuration);
 }
 
-void MainWindow::setUiRunning(bool running)
-{
+void MainWindow::setUiRunning(bool running) {
     ui->GetWordBut->setEnabled(!running);
     ui->RulesTable->setEnabled(!running);
     ui->WordEnter->setEnabled(!running);
@@ -844,24 +698,18 @@ void MainWindow::setUiRunning(bool running)
     ui->stopBut2->setEnabled(running);
 }
 
-void MainWindow::blockButtons(bool running)
-{
+void MainWindow::blockButtons(bool running) {
     ui->runBut->setEnabled(!running);
     ui->startBut->setEnabled(!running);
     ui->stopBut->setEnabled(!running);
     ui->stopBut2->setEnabled(!running);
 }
 
-bool MainWindow::validateRules()
-{
+bool MainWindow::validateRules() {
     int maxState = ui->RulesTable->rowCount();
-
-    for (const Rule &r : Rules)
-    {
-        if (r.hasState)
-        {
-            if (r.toState < 0 || r.toState >= maxState)
-            {
+    for (const Rule &r : Rules) {
+        if (r.hasState) {
+            if (r.toState < 0 || r.toState >= maxState) {
                 showError("Переход в несуществующее состояние q" + QString::number(r.toState));
                 return false;
             }
@@ -871,26 +719,18 @@ bool MainWindow::validateRules()
     return true;
 }
 
-void MainWindow::enqueueAnimation(std::function<void()> animFunc)
-{
+void MainWindow::enqueueAnimation(std::function<void()> animFunc) {
     animationQueue.push(animFunc);
-
-    if (!isAnimating)
-        runNextAnimation();
+    if (!isAnimating) runNextAnimation();
 }
 
-void MainWindow::runNextAnimation()
-{
-    if (animationQueue.empty())
-    {
+void MainWindow::runNextAnimation() {
+    if (animationQueue.empty()) {
         isAnimating = false;
         return;
     }
-
     isAnimating = true;
-
     auto anim = animationQueue.front();
     animationQueue.pop();
-
-    anim(); // запускаем следующую
+    anim();
 }
